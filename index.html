@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+        function getComputerChoice(){
+            let n=Math.floor(Math.random()*3);
+            return (n==0)?"Rock":((n==1)?"Paper":"Scissors");
+        }
+        function playRound(x,y){
+            x=x.toLowerCase();
+            y=y.toLowerCase();
+            if(x=="rock"){
+                switch(y){
+                    case "paper":
+                        return "You Lose! Paper beats Rock";
+                    case "scissors":
+                        return "You Win!!! Rock beats Scissors";
+                }
+            }else if(x=="paper"){
+                switch(y){
+                    case "rock":
+                        return "You Win!!! Paper beats Rock";
+                    case "scissors":
+                        return "You Lose! Scissors beats Paper";
+                }
+            }else if(x=="scissors"){
+                switch(y){
+                    case "paper":
+                        return "You Win!!! Scissors beats Paper";
+                    case "rock":
+                        return "You Lose! Rock beats Scissors";
+                }
+            }
+        }
+        const playerSelection = prompt(`To begin the game, select one of the options "Rock", "Paper", "Scissors"`)
+        const computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection,computerSelection));
+    </script>
+</body>
+</html>
